@@ -14,7 +14,7 @@ public class SOCCal{
     public void calenderUi() {
         JFrame calenderFrame = new JFrame("SOC Management APP");
         calenderFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        System.out.print("test");
     }
 
     //Creating the month panel
