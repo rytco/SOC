@@ -7,7 +7,6 @@ public class SOCUserIn {
     private String personName;
     private int personDate;
     private int personTime;
-
     
     public void userTimetableIn() {
         Scanner userInput = new Scanner(System.in); //Creates scanner
