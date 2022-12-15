@@ -1,3 +1,5 @@
+package com.soc;
+
 // The main file
 
 import javax.swing.*; //For the window

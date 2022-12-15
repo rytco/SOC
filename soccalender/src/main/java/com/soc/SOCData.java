@@ -3,6 +3,7 @@
 //Imported librarys
 import java.time.*;
 import java.util.*;
+import javax.json.*;
 
 class SOCData { 
     //Date mem save

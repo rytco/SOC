@@ -2,6 +2,8 @@
 
 //Imported librarys
 import java.util.*;
+import java.io.FileReader;
+import javax.json.J
 
 public class SOCUserIn {
     private String personDiscription;
@@ -22,11 +24,11 @@ public class SOCUserIn {
         userInput.close();
     }
 
-    private void userInfoDataWrite(){ //Writes data into a file
+    private void userInfoDataWrite(){ //Writes data into a json file
 
     }
 
-    public void userInfoDataRead() { //Reads data if written and returns it
+    public void userInfoDataRead() { //Reads data if written and returns it 
 
     }
 }

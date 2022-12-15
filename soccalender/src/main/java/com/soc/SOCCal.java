@@ -1,3 +1,5 @@
+package com.soc;
+
 // The calander function file
 // Using JavaFx to create
 
@@ -27,7 +29,7 @@ public class SOCCal{
     //Creating class objs
     SOCData theData = new SOCData();
 
-    //Creating the calender UI
+    //Creating the calender main UI
     public void calenderUi() {
         //Creating the calender frame
         calenderFrame = new JFrame("SOC Management APP"); 
@@ -44,6 +46,10 @@ public class SOCCal{
 
     //Creating the month panel
     public void calenderMonth() {
+
+    }
+
+    public void dayData() { //Used to read/ show the data of each date
 
     }
 
