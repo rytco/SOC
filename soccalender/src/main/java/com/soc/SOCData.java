@@ -2,10 +2,12 @@
 
 package com.soc;
 
+import java.io.*;
 //Imported librarys
 import java.time.*;
 import java.util.*;
 import javax.json.*;
+import org.json.simple.*;
 
 class SOCData { 
     //Date mem save
@@ -13,6 +15,31 @@ class SOCData {
     public int year;
     public int currentDay;
     public int daysOfMonth;
+
+    public void writeData(String name, String eventName, String discription, String date, String time) {
+        // Creating a json object to add info too
+        JSONObject userInfo = new JSONObject();
+        userInfo.put("Name", name);
+        userInfo.put("Event Name", eventName);
+        userInfo.put("Discription", discription);
+        
+        // Writing to the JSON File
+        try (FileWriter fileJSON = new FileWriter("userInfoFile.json")){
+            // Writes info to file
+            fileJSON.write(userInfo.toJSONString()); 
+            fileJSON.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeData() {
+    
+    }
+
+    public void readData() {
+
+    }
 
     public long monthGet() { //Gets the month
         Date date = new Date(); //Creates data obj from java.util
