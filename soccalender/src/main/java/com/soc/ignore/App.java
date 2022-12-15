@@ -1,4 +1,4 @@
-package com.soc;
+package com.soc.ignore;
 
 import javax.mvc.security.Csrf;
 import javax.ws.rs.ApplicationPath;

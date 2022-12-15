@@ -1,4 +1,4 @@
-package com.soc;
+package com.soc.ignore;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;

@@ -1,4 +1,4 @@
-package com.soc;
+package com.soc.ignore;
 
 import javax.inject.Inject;
 import javax.mvc.Models;

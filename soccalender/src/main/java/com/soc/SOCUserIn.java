@@ -1,9 +1,11 @@
 // User Input Class/ Write to save
 
+package com.soc;
+
 //Imported librarys
 import java.util.*;
 import java.io.FileReader;
-import javax.json.J
+import javax.json.*;
 
 public class SOCUserIn {
     private String personDiscription;

@@ -1,7 +1,7 @@
-package com.soc;
-
 // The calander function file
 // Using JavaFx to create
+
+package com.soc;
 
 //Imported librarys
 import javax.swing.*; //For the window

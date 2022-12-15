@@ -1,5 +1,7 @@
 // Data Stuff
 
+package com.soc;
+
 //Imported librarys
 import java.time.*;
 import java.util.*;
