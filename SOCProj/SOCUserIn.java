@@ -1,5 +1,6 @@
-// User Input Class
+// User Input Class/ Write to save
 
+//Imported librarys
 import java.util.*;
 
 public class SOCUserIn {
@@ -8,7 +9,7 @@ public class SOCUserIn {
     private int personDate;
     private int personTime;
     
-    public void userTimetableIn() {
+    public void userTimetableIn() { //Gets information from SOCCal.calenderUserIn then writes to file to save 
         Scanner userInput = new Scanner(System.in); //Creates scanner
         
         //Gets a individuals information
@@ -19,5 +20,13 @@ public class SOCUserIn {
 
         //Close Scanner
         userInput.close();
+    }
+
+    private void userInfoDataWrite(){ //Writes data into a file
+
+    }
+
+    public void userInfoDataRead() { //Reads data if written and returns it
+
     }
 }

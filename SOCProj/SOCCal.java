@@ -1,6 +1,7 @@
 // The calander function file
 // Using JavaFx to create
 
+//Imported librarys
 import javax.swing.*; //For the window
 import java.awt.*; //For colors
 import java.time.DayOfWeek;
@@ -17,13 +18,11 @@ public class SOCCal{
     private JButton userConfirm;
     private JFrame calenderFrame;
     private JTable calenderTable;
+    private JList monthList = new JList<>(monthNames);
 
     private JTextField usersName;
     private JLabel nameLabel;
 
-
-    //Creating the JLists
-    JList monthList = new JList<>(monthNames);
 
     //Creating class objs
     SOCData theData = new SOCData();
@@ -48,7 +47,7 @@ public class SOCCal{
 
     }
 
-    //Information for day pop up panel
+    //Information for when user clicks on a event and to pop up something and show all info & discription + ability to delete event
     public void dayInfo() {
 
     }
@@ -67,11 +66,22 @@ public class SOCCal{
         SpringLayout userInputLayout = new SpringLayout();
 
         //Adding the textfields and text entry into layout
+        //Name
         JTextField usersName = new JTextField(15);
         JLabel userNameLabel = new JLabel("Name");
         userInputInternalFrame.add(userNameLabel);
         userInputInternalFrame.add(usersName);
         
+        //Date
+
+
+        //Time (Probably like a dropdown menu than text input)
+
+
+        //Event Name
+
+
+        //Event Discription
 
         //Creating the userinput confirmation button
         JButton userConfirm = new JButton("Enter");
@@ -83,11 +93,15 @@ public class SOCCal{
         userInputInternalFrame.setVisible(true);
     }
 
-    public void eventList() {
+    public void eventList() { //List of all events/ items + ability to delete events
 
     }
 
-    public void actionPerformed(Action event){
+    public void eventDelete() {
+        
+    }
+
+    public void actionPerformed(Action event){ //Detects if event is performed and then returns confirmation
 
     }
 
