@@ -3,11 +3,26 @@
 
 package com.soc;
 
+//For colors
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.*;
+
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ActionListener;
 //Imported librarys
-import javax.swing.*; //For the window
-import java.awt.*; //For colors
-import java.time.DayOfWeek;
-import java.util.*;
+//For the window
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class SOCCal{
     //Createing the lists of days and month names
@@ -46,7 +61,7 @@ public class SOCCal{
 
     }
 
-    public void dayData() { //Used to read/ show the data of each date
+    public void dayData() { //Used to read/show the data of each date
 
     }
 
@@ -82,51 +97,72 @@ public class SOCCal{
 
         //Adding the textfields and text entry into layout
         //Name
-        JTextField usersName = new JTextField(15);
-        JLabel userNameLabel = new JLabel("Name");
-        
+        JTextField usersName = new JTextField(30);
+        JLabel userNameLabel = new JLabel("Name:");
+        //Setting name color and size
+        userNameLabel.setFont(new Font("Serif", Font.PLAIN, 30));
+        userNameLabel.setForeground(Color.white);
+
         //Date
-        JTextField userDate = new JTextField(15);
-        JLabel userDateLabel = new JLabel("Date");
-        
+        JTextField userDate = new JTextField(30);
+        JLabel userDateLabel = new JLabel("Date:");
+        //Setting color and size
+        userDateLabel.setFont(new Font("Serif", Font.PLAIN, 30));
+        userDateLabel.setForeground(Color.white);
+
         //Time (Probably like a dropdown menu than text input)
-        JTextField userTime = new JTextField(15);
-        JLabel userTimeLabel = new JLabel("Time");
+        JTextField userTime = new JTextField(30);
+        JLabel userTimeLabel = new JLabel("Time:");
+        userTimeLabel.setFont(new Font("Serif", Font.PLAIN, 30));
+        userTimeLabel.setForeground(Color.white);
 
         //Event Name
-        JTextField userEvent = new JTextField(15);
-        JLabel userEventLabel = new JLabel("Event");
+        JTextField userEvent = new JTextField(30);
+        JLabel userEventLabel = new JLabel("Event:");
+        userEventLabel.setFont(new Font("Serif", Font.PLAIN, 30));
+        userEventLabel.setForeground(Color.white);
 
         //Event Discription
-        JTextField eventDiscription = new JTextField(15);
-        JLabel eventDiscriptionLabel = new JLabel("Discription");
+        JTextField eventDiscription = new JTextField(25);
+        JLabel eventDiscriptionLabel = new JLabel("Discription:");
+        eventDiscriptionLabel.setFont(new Font("Serif", Font.PLAIN, 30));
+        eventDiscriptionLabel.setForeground(Color.white);
 
         //Adding items to the layout
         //For the label
         // Setting the Left (West) 5 pizels from the left side of the userInputinternal frame
-        userInputLayout.putConstraint(SpringLayout.WEST, userNameLabel, 5, SpringLayout.WEST, userInputInternalFrame);
+        userInputLayout.putConstraint(SpringLayout.WEST, userNameLabel, 15, SpringLayout.WEST, userInputInternalFrame);
         // Setting the top (north) edge of the label x below the top of the userInputinternal frame
-        userInputLayout.putConstraint(SpringLayout.NORTH, userNameLabel, 5,SpringLayout.NORTH, userInputInternalFrame);
+        userInputLayout.putConstraint(SpringLayout.NORTH, userNameLabel, 15,SpringLayout.NORTH, userInputInternalFrame);
         //For the textbox
-        userInputLayout.putConstraint(SpringLayout.WEST, usersName, 5, SpringLayout.EAST, userNameLabel); //Sets the 
-        userInputLayout.putConstraint(SpringLayout.NORTH, usersName, 5, SpringLayout.NORTH, userInputInternalFrame);
+        userInputLayout.putConstraint(SpringLayout.WEST, usersName, 5, SpringLayout.EAST, userNameLabel);
+        userInputLayout.putConstraint(SpringLayout.NORTH, usersName, 0, SpringLayout.NORTH, userInputInternalFrame);
+
+        //Setting Date
+        userInputLayout.putConstraint(SpringLayout.SOUTH, userNameLabel, 15,SpringLayout.NORTH, userDateLabel);
+        userInputLayout.putConstraint(SpringLayout.WEST, userInputInternalFrame, 15, SpringLayout.WEST, userDateLabel);
+        userInputLayout.putConstraint(SpringLayout.SOUTH, usersName, 15,SpringLayout.NORTH, userDate);
 
         //Creating the userinput confirmation button
         JButton userConfirm = new JButton("Enter");
-        userConfirm.setBounds(100, 100, 15, 5);
-        //userInputInternalFrame.add(userConfirm);
-
+        userConfirm.setBounds(200, 200, 50, 50);
+        
+        //Button action 
+        userConfirm.addActionListener(new ActionListener());
+        
         //Showing all the items
         userInputInternalFrame.add(userNameLabel);
         userInputInternalFrame.add(usersName);
-        //userInputInternalFrame.add(userDateLabel);
-        //userInputInternalFrame.add(userDate);
-        //userInputInternalFrame.add(userTimeLabel);
-        //userInputInternalFrame.add(userTime);
-        //userInputInternalFrame.add(userEventLabel);
-        //userInputInternalFrame.add(userEvent);
-        //userInputInternalFrame.add(ueventDiscriptionLabel);
-        //userInputInternalFrame.add(eventDiscription);
+        userInputInternalFrame.add(userDateLabel);
+        userInputInternalFrame.add(userDate);
+        userInputInternalFrame.add(userTimeLabel);
+        userInputInternalFrame.add(userTime);
+        userInputInternalFrame.add(userEventLabel);
+        userInputInternalFrame.add(userEvent);
+        userInputInternalFrame.add(eventDiscriptionLabel);
+        userInputInternalFrame.add(eventDiscription);
+
+        userInputInternalFrame.add(userConfirm);
 
         // Adding to main and showing
         calenderFrame.add(userInputInternalFrame, BorderLayout.LINE_START);
