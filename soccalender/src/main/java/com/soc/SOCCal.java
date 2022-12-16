@@ -193,6 +193,9 @@ public class SOCCal{
         //Creating the panel
         JPanel theDayPanel = new JPanel();
 
+        //Creating & adding date label
+        JLabel dateLabel = new JLabel(dayNumber);
+
         //Setting the location/constraints
         gridConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridConstraints.gridx = xGrid;
@@ -200,6 +203,7 @@ public class SOCCal{
         theDayPanel.setBorder(blackline);
 
         //Showing panel
+        theDayPanel.add(dateLabel);
         startPanel.add(theDayPanel);
     }
 
@@ -216,6 +220,8 @@ public class SOCCal{
         startPanel.repaint();
         buttontest.setVisible(true);
         startPanel.repaint();
+
+        // TODO make it so it pops up in the right place
 
         // TODO Make it so when button clicked the event info pops up
 
