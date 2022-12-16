@@ -17,33 +17,24 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.border.Border;
 
-import junit.framework.Test;
-
 public class SOCCal{
-    //Createing the lists of days and month names
-    private static final String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    private static final String[] monthNames = { "January", "February", "March", "April", "May", "June", "July","August", "September", "October", "November", "December" };
-    
-    //Private jframe elements for storing in ram beforehand? idk
+    //Pre storing variables
     private JPanel userInputInternalFrame;
     private SpringLayout userInputLayout;
     private JButton userConfirm;
     private JFrame calenderFrame;
     private JTable calenderTable;
-    private JList monthList = new JList<>(monthNames);
-    private JList dayList = new JList<>(daysOfWeek);
     public int numberDate;
     GridBagConstraints storeGrid;
     JPanel storePanel;
 
-    //Creating the calender main UI
+    //Creating the calender main UI + Running them
     public void calenderUi() {
         //Creating the calender frame
         calenderFrame = new JFrame("SOC Management APP"); 
@@ -51,7 +42,6 @@ public class SOCCal{
         //Adding addtional elements
         calenderMonth();
         calenderUserIn();
-        
 
         // Calander Size & Parameters
         calenderFrame.setSize(1780,1020);
@@ -213,31 +203,39 @@ public class SOCCal{
         startPanel.add(theDayPanel);
     }
 
-    public void createButton(String name, int date, String event, String discription, String eventName, JPanel startPanel, GridBagConstraints gridConstraints, int xaxis, int yaxis){
+    public void createButton(String name, int date, String event, String discription, String eventName, JPanel startPanel, GridBagConstraints gridConstraints, int xaxis, int yaxis){       
         //Creates button with name
         JButton buttontest = new JButton(name + "|" + eventName);
         gridConstraints.fill = GridBagConstraints.HORIZONTAL;
         gridConstraints.gridx = xaxis;
         gridConstraints.gridy = yaxis;
+
+        // Showing the button
         startPanel.add(buttontest, gridConstraints);
         startPanel.validate();
         startPanel.repaint();
         buttontest.setVisible(true);
         startPanel.repaint();
+
+        // TODO Make it so when button clicked the event info pops up
+
     }
 
-    public void dayData(String name, String date, String event, String discription, String eventname, JPanel startPanel, GridBagConstraints gridConstraints) { //Add days info into panel
-        System.out.print("1");
+    public void dayData(String inname, String date, String inevent, String indiscription, String ineventname, JPanel startPanel, GridBagConstraints gridConstraints) { //Add days info into panel
         try { //Used to convert string date into int numberdate
-            int numberDate = Integer.parseInt(date);
+            numberDate = Integer.parseInt(date);
         } catch (NumberFormatException e) { //Catches error and drops
             // TODO should probably add a popup saying try again
             e.printStackTrace();
         }
 
-        System.out.print("2");
-        //Does the math to find the spefific day? Then creates a button on that day
-        // Ima cry this if statements list gonna suck
+        //Pushing the parameters into a variable because it doesnt work if I dont?
+        String name = inname;
+        String event = inevent;
+        String discription = indiscription;
+        String eventname = ineventname;
+
+        //Does the "math" to find the spefific day? Then creates a button on that day
         if (numberDate == 1) {
             createButton(name, numberDate, event, discription, eventname, storePanel, storeGrid, 0, 1);
         } else if (numberDate == 2) {
@@ -305,27 +303,6 @@ public class SOCCal{
         } else if (numberDate == 31) {
             createButton(name, numberDate, event, discription, eventname, storePanel, storeGrid, 2, 5);
         }
-        System.out.print("5");
-    }
-
-    //Information for when user clicks on a event and to pop up something and show all info & discription + ability to delete event
-    public void dayInfo(String string) {
-        //Creating popup
-        JFrame dayPopUp = new JFrame();
-
-        //Creating delete promt for that option
-        JButton deleteInfo = new JButton();
-       
-        //Getting days info
-        String dayInfoMessage = "";
-
-        //Text box of the information
-        
-
-        //Adding elements to the JDialog
-        dayPopUp.setSize(200,100);
-        dayPopUp.add(deleteInfo);
-        dayPopUp.setVisible(true);
     }
 
     //Creating slot for userinput 
@@ -413,7 +390,8 @@ public class SOCCal{
                 //Creates event
                 dayData(name, date, event, discription, eventname, storePanel, storeGrid);
 
-                //Pushes into JSON folder
+                // TODO Pushes into JSON folder
+
             }
         });
         

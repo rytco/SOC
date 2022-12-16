@@ -2,12 +2,15 @@
 
 package com.soc;
 
-import java.io.*;
 //Imported librarys
-import java.time.*;
-import java.util.*;
-import javax.json.*;
-import org.json.simple.*;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
+import org.json.simple.JSONObject;
 
 class SOCData { 
     //Date mem save
@@ -33,11 +36,11 @@ class SOCData {
         }
     }
 
-    public void removeData() {
+    public void removeData() { // TODO remove data from JSON Folder
     
     }
 
-    public void readData() {
+    public void readData() { // TODO read data from JSON Folder
 
     }
 
