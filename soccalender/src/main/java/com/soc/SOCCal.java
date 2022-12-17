@@ -68,7 +68,20 @@ public class SOCCal{
         //Creating the panels for each day
         panelGridDaysOfWeek(calenderPanel, calenderGrid);
 
-        //All DAys :(((((
+        int offset = 2;
+
+        for (int i = 0; i < offset; i++) {
+            panelGridTemplate(calenderPanel, calenderGrid, i, 0, "", "");
+        }
+
+        for (int day = 1; day <= 31; day++) {
+            int week = (day + offset) / 7 + 1;
+            int dayOfWeek = (day + offset) % 7;
+
+            panelGridTemplate(calenderPanel, calenderGrid, dayOfWeek, week, "" + day, "");
+        }
+
+        /*//All DAys :(((((
         panelGridTemplate(calenderPanel, calenderGrid, 0, 1, "1", ""); //1
         panelGridTemplate(calenderPanel, calenderGrid, 1, 1, "2", ""); //2
         panelGridTemplate(calenderPanel, calenderGrid, 2, 1, "3", ""); //3
@@ -104,6 +117,7 @@ public class SOCCal{
         panelGridTemplate(calenderPanel, calenderGrid, 1, 5, "29", ""); //29
         panelGridTemplate(calenderPanel, calenderGrid, 2, 5, "30", ""); //30
         panelGridTemplate(calenderPanel, calenderGrid, 3, 5, "31", ""); //31 
+        */
 
         //Adding the panel
         calenderFrame.add(calenderPanel, BorderLayout.CENTER);
@@ -242,7 +256,16 @@ public class SOCCal{
         String eventname = ineventname;
 
         //Does the "math" to find the spefific day? Then creates a button on that day
-        if (numberDate == 1) {
+        {
+            int week = numberDate / 7 + 1;
+            int dayOfWeek = numberDate % 7;
+
+            createButton(name, numberDate, event, discription, eventname, startPanel, gridConstraints, dayOfWeek, week);
+        }
+
+
+        /*
+        if (numberDate == 1) { //How to optimize this?
             createButton(name, numberDate, event, discription, eventname, storePanel, storeGrid, 0, 1);
         } else if (numberDate == 2) {
             createButton(name, numberDate, event, discription, eventname, storePanel, storeGrid, 1, 1);
@@ -309,6 +332,7 @@ public class SOCCal{
         } else if (numberDate == 31) {
             createButton(name, numberDate, event, discription, eventname, storePanel, storeGrid, 2, 5);
         }
+        */
     }
 
     //Creating slot for userinput 
@@ -384,7 +408,7 @@ public class SOCCal{
         
         //Button action 
         userConfirm.addActionListener(new ActionListener() {
-            @Override
+            @Override // TODO What is this?
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 //Get the info from the text fields
                 String name = usersName.getText();
